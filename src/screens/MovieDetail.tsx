@@ -3,15 +3,15 @@ import { View, Text, Button } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStack } from '../navigation/HomeStackNavigation';
 
-type Props = NativeStackScreenProps<RootStack, 'Home'>;
+type Props = NativeStackScreenProps<RootStack, 'MovieDetail'>;
 
-export default function Home({ navigation }: Props): JSX.Element {
+export default function MovieDetail({ navigation }: Props): JSX.Element {
   return (
     <View>
-      <Text>Home</Text>
+      <Text>Movie Detail</Text>
       <Button
-        title="Go to Movie Detail"
-        onPress={() => navigation.navigate('MovieDetail')}
+        title="Go back to Home"
+        onPress={() => navigation.navigate('Home')}
       />
     </View>
   );
