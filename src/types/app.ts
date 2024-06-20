@@ -2,6 +2,7 @@ export interface MovieListProps {
   title: string;
   path: string;
   coverType: "poster" | "backdrop";
+
 }
 
   export interface Movie {
@@ -44,4 +45,5 @@ export interface MovieListProps {
     movie: Movie;
     size: { width: number; height: number };
     coverType: "poster" | "backdrop";
+    
   }
