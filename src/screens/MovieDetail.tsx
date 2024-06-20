@@ -145,7 +145,7 @@ const MovieDetail = ({ route }: any): JSX.Element => {
               <View style={styles.ratingContainer}>
                 <FontAwesome name="star" size={16} color="yellow" />
                 <Text style={styles.rating}>
-                  {movie.vote_average.toFixed(1)}
+                  {movie.vote_average}
                 </Text>
               </View>
               <TouchableOpacity

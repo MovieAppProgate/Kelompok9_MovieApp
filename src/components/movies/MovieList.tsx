@@ -42,7 +42,7 @@ const MovieList = ({ title, path, coverType }: MovieListProps): JSX.Element => {
         console.log(errorResponse);
       });
   };
-  console.log(movies);
+  //console.log(movies);
 
   return (
     <View>
