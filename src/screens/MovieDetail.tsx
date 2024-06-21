@@ -145,7 +145,7 @@ const MovieDetail = ({ route }: any): JSX.Element => {
               <View style={styles.ratingContainer}>
                 <FontAwesome name="star" size={16} color="yellow" />
                 <Text style={styles.rating}>
-                  {movie.vote_average}
+                  {movie.vote_average.toFixed(1)}
                 </Text>
               </View>
               <TouchableOpacity
@@ -200,6 +200,7 @@ const MovieDetail = ({ route }: any): JSX.Element => {
               movie={item}
               size={{ width: 100, height: 160 }}
               coverType="poster"
+              onPress={() => item.id}
             />
           )}
           keyExtractor={(item) => item.id.toString()}
