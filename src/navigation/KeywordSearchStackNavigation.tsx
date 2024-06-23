@@ -5,7 +5,9 @@ import MovieDetail from '../screens/MovieDetail';
 
 const Stack = createNativeStackNavigator();
 
-const KeywordSearchStackNavigation = (): JSX.Element => (
+const KeywordSearchStackNavigation = (): JSX.Element => {
+    console.log('KeywordSearchStackNavigation Component Rendered');
+return (
   <Stack.Navigator initialRouteName="KeywordSearch">
     <Stack.Screen
       name="KeywordSearch"
@@ -18,6 +20,6 @@ const KeywordSearchStackNavigation = (): JSX.Element => (
       options={{ title: 'Movie Details' }}
     />
   </Stack.Navigator>
-);
+)};
 
 export default KeywordSearchStackNavigation;

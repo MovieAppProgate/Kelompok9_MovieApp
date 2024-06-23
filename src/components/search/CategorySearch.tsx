@@ -91,13 +91,23 @@ const CategorySearch = () => {
     >
       <View style={styles.categoryContainer}>
         {categories.map((category: string, index: number) => (
-          <TouchableOpacity
-            key={index}
-            style={styles.button}
-            onPress={() => handleCategorySelect(category)}
-          >
-            <Text style={styles.buttonText}>{category}</Text>
-          </TouchableOpacity>
+           <TouchableOpacity
+              key={index}
+              style={[
+                styles.button,
+                selectedCategory === category && styles.selectedButton,
+              ]}
+              onPress={() => handleCategorySelect(category)}
+            >
+              <Text
+                style={[
+                  styles.buttonText,
+                  selectedCategory === category && styles.selectedButtonText,
+                ]}
+              >
+                {category}
+              </Text>
+            </TouchableOpacity>
         ))}
       </View>
       <TouchableOpacity style={styles.searchButton} onPress={handleSearch}>
@@ -157,6 +167,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingTop: 10,
   },
+  selectedButton: {
+      backgroundColor: "#8978A4",
+   },
+   selectedButtonText: {
+       color: "#FFF",
+   },
 });
 
 export default CategorySearch;
