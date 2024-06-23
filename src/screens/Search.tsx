@@ -4,6 +4,7 @@ import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import KeywordSearch from "../components/search/KeywordSearch";
 import CategorySearch from "../components/search/CategorySearch";
 import KeywordSearchStackNavigation from "../navigation/KeywordSearchStackNavigation";
+import CategorySearchStackNavigation from "../navigation/CategorySearchStackNavigation";
 
 const Search = () => {
   const [selectedBar, setSelectedBar] = useState("keyword");
@@ -30,7 +31,7 @@ const Search = () => {
             </TouchableOpacity>
           ))}
         </View>
-        {selectedBar === "keyword" ? <KeywordSearchStackNavigation /> : <CategorySearch />}
+        {selectedBar === "keyword" ? <KeywordSearchStackNavigation /> : <CategorySearchStackNavigation />}
       </View>
     </View>
   );

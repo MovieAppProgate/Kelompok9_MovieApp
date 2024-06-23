@@ -17,6 +17,7 @@ import { Movie } from "../../types/app";
 const ITEM_WIDTH = 100;
 
 const KeywordSearch: React.FC = () => {
+    console.log('KeywordSearch Component Rendered');
   const [query, setQuery] = useState<string>("");
   const [results, setResults] = useState<Movie[]>([]);
   const navigation = useNavigation();
