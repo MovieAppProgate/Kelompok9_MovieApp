@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { StackActions } from "@react-navigation/native";
-import { FontAwesome } from "@expo/vector-icons";
+import { FontAwesome } from "@expo/vector-icons"; // Assuming FontAwesome is imported correctly
 
 import MovieItem from "../movies/MovieItem";
 import { API_ACCESS_TOKEN } from "@env";
@@ -17,7 +17,6 @@ import { Movie } from "../../types/app";
 const ITEM_WIDTH = 100;
 
 const KeywordSearch: React.FC = () => {
-    console.log('KeywordSearch Component Rendered');
   const [query, setQuery] = useState<string>("");
   const [results, setResults] = useState<Movie[]>([]);
   const navigation = useNavigation();
@@ -46,7 +45,7 @@ const KeywordSearch: React.FC = () => {
   };
 
   return (
-    <View style={styles.goDown}>
+    <View>
       <View style={styles.inputContainer}>
         <FontAwesome
           name="search"
@@ -59,7 +58,7 @@ const KeywordSearch: React.FC = () => {
           placeholder="Search for a keyword..."
           value={query}
           onChangeText={setQuery}
-          onSubmitEditing={handleSearch}
+          onSubmitEditing={handleSearch} // Trigger search when user submits
         />
       </View>
       <FlatList
@@ -92,12 +91,8 @@ const KeywordSearch: React.FC = () => {
 };
 
 const styles = StyleSheet.create({
-//     goDown:{
-//     marginTop:70,
-//     },
   inputContainer: {
     marginTop: 10,
-//     flex:1,
     flexDirection: "row",
     alignItems: "center",
     marginBottom: 16,
