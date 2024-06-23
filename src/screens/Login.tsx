@@ -9,7 +9,6 @@ import {
   ActivityIndicator,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { API_ACCESS_TOKEN } from '@env';
 import type { StackNavigationProp } from '@react-navigation/stack';
 import { FontAwesome } from '@expo/vector-icons';
 
@@ -36,57 +35,20 @@ const Login: React.FC = () => {
     setLoading(true);
 
     try {
-      // First, get a new request token
-      const tokenResponse = await fetch(`https://api.themoviedb.org/3/authentication/token/new?api_key=${API_ACCESS_TOKEN}`);
-
-      const tokenData = await tokenResponse.json();
-      console.log(tokenData);
-      const requestToken = tokenData.request_token;
-
-      // Then, validate the request token with username and password
-//       const validateResponse = await fetch(`https://api.themoviedb.org/3/authentication/token/validate_with_login?api_key=${API_ACCESS_TOKEN}`, {
-//         method: 'POST',
-//         headers: {
-//           'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify({
-//           username,
-//           password,
-//           request_token: requestToken,
-//         }),
-//       });
-//
-//       const validateData = await validateResponse.json();
-//
-//       if (!validateResponse.ok) {
-//         throw new Error(validateData.status_message || 'Invalid username or password');
-//       }
-
-      // Finally, create a new session
-//       const sessionResponse = await fetch(`https://api.themoviedb.org/3/authentication/session/new?api_key=${API_ACCESS_TOKEN}`, {
-//         method: 'POST',
-//         headers: {
-//           'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify({
-//           request_token: validateData.request_token,
-//         }),
-//       });
-//
-//       const sessionData = await sessionResponse.json();
-//
-//       if (!sessionResponse.ok) {
-//         throw new Error(sessionData.status_message || 'Failed to create session');
-//       }
-//
-//       Alert.alert('Success', 'Logged in successfully');
-//       navigation.replace('Main');
+      // Sederhanakan login dengan hardcoded username dan password
+      if (username === 'username' && password === 'password') {
+        Alert.alert('Success', 'Logged in successfully');
+        navigation.replace('Main');
+      } else {
+        throw new Error('Invalid username or password');
+      }
     } catch (error) {
       Alert.alert('Error', (error as Error).message);
     } finally {
       setLoading(false);
     }
   };
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Login</Text>
@@ -98,26 +60,30 @@ const Login: React.FC = () => {
         onChangeText={setUsername}
       />
       <View style={styles.passwordContainer}>
-          <TextInput
-            style={styles.passwordInput}
-            placeholder="Password"
-            value={password}
-            onChangeText={setPassword}
-            secureTextEntry={!isPasswordVisible}
+        <TextInput
+          style={styles.passwordInput}
+          placeholder="Password"
+          value={password}
+          onChangeText={setPassword}
+          secureTextEntry={!isPasswordVisible}
+        />
+        <TouchableOpacity
+          onPress={() => setIsPasswordVisible(!isPasswordVisible)}
+          style={styles.visibilityToggle}
+        >
+          <FontAwesome
+            name={isPasswordVisible ? 'eye' : 'eye-slash'}
+            size={24}
+            color="#555"
           />
-          <TouchableOpacity
-            onPress={() => setIsPasswordVisible(!isPasswordVisible)}
-            style={styles.visibilityToggle}
-          >
-            <FontAwesome
-              name={isPasswordVisible ? 'eye' : 'eye-slash'}
-              size={24}
-              color="#555"
-            />
-          </TouchableOpacity>
-        </View>
+        </TouchableOpacity>
+      </View>
       <TouchableOpacity style={styles.button} onPress={handleLogin}>
-        <Text style={styles.buttonText}>Login</Text>
+        {loading ? (
+          <ActivityIndicator size="small" color="#FFF" />
+        ) : (
+          <Text style={styles.buttonText}>Login</Text>
+        )}
       </TouchableOpacity>
     </View>
   );
@@ -162,23 +128,22 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   passwordContainer: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      borderColor: '#CCC',
-      borderWidth: 1,
-      borderRadius: 8,
-      backgroundColor: '#FFF',
-      marginBottom:16,
-    },
-    passwordInput: {
-      flex: 1,
-      height: 50,
-      paddingHorizontal: 16,
-    },
-    visibilityToggle: {
-//         flex: 1,
-      padding: 10,
-    },
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderColor: '#CCC',
+    borderWidth: 1,
+    borderRadius: 8,
+    backgroundColor: '#FFF',
+    marginBottom: 16,
+  },
+  passwordInput: {
+    flex: 1,
+    height: 50,
+    paddingHorizontal: 16,
+  },
+  visibilityToggle: {
+    padding: 10,
+  },
 });
 
 export default Login;
