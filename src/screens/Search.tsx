@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import KeywordSearch from "../components/search/KeywordSearch";
 import CategorySearch from "../components/search/CategorySearch";
+import KeywordSearchStackNavigation from "../navigation/KeywordSearchStackNavigation";
 
 const Search = () => {
   const [selectedBar, setSelectedBar] = useState("keyword");
@@ -29,7 +30,7 @@ const Search = () => {
             </TouchableOpacity>
           ))}
         </View>
-        {selectedBar === "keyword" ? <KeywordSearch /> : <CategorySearch />}
+        {selectedBar === "keyword" ? <KeywordSearchStackNavigation /> : <CategorySearch />}
       </View>
     </View>
   );
@@ -37,6 +38,7 @@ const Search = () => {
 
 const styles = StyleSheet.create({
   container: {
+//     flex: 1,
     padding: 16,
   },
   topBarContainer: {
