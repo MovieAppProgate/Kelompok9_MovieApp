@@ -97,6 +97,7 @@ const styles = StyleSheet.create({
 //     },
   inputContainer: {
     marginTop: 10,
+//     flex:1,
     flexDirection: "row",
     alignItems: "center",
     marginBottom: 16,
