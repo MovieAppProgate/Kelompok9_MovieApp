@@ -1,10 +1,9 @@
-
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image, Alert, BackHandler } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Feather } from '@expo/vector-icons';
 
-const AccountUser = (): JSX.Element => {
+const AccountUser = () => {
   const navigation = useNavigation();
 
   const handleUserDetailPress = () => {
@@ -16,7 +15,22 @@ const AccountUser = (): JSX.Element => {
   };
 
   const handleLogoutPress = () => {
-    console.log('Logout pressed');
+    Alert.alert(
+      'Logout',
+      'Apakah anda ingin Logout dari aplikasi?',
+      [
+        {
+          text: 'Cancel',
+          onPress: () => console.log('Logout cancelled'),
+          style: 'cancel',
+        },
+        {
+          text: 'Yes',
+          onPress: () => BackHandler.exitApp(),
+        },
+      ],
+      { cancelable: false }
+    );
   };
 
   return (
@@ -26,7 +40,6 @@ const AccountUser = (): JSX.Element => {
       </View>
 
       <View style={styles.contentContainer}>
-        
         <TouchableOpacity style={styles.iconButton} onPress={handleUserDetailPress}>
           <Feather name="info" size={24} color="#007bff" />
           <Text style={styles.iconText}>User Detail</Text>
@@ -59,8 +72,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   headerImage: {
-    width: 210,
-    height: 210,
+    width: 80,
+    height: 80,
     borderRadius: 40,
   },
   contentContainer: {
