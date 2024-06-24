@@ -11,6 +11,10 @@ const AccountUser = (): JSX.Element => {
     navigation.navigate('UserDetail');
   };
 
+  const handleFAQPress = () => {
+    navigation.navigate('FAQ');
+  };
+
   const handleLogoutPress = () => {
     console.log('Logout pressed');
   };
@@ -26,6 +30,11 @@ const AccountUser = (): JSX.Element => {
         <TouchableOpacity style={styles.iconButton} onPress={handleUserDetailPress}>
           <Feather name="info" size={24} color="#007bff" />
           <Text style={styles.iconText}>User Detail</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.iconButton} onPress={handleFAQPress}>
+          <Feather name="help-circle" size={24} color="#28a745" />
+          <Text style={styles.iconText}>FAQ</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.iconButton} onPress={handleLogoutPress}>
@@ -50,8 +59,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   headerImage: {
-    width: 80,
-    height: 80,
+    width: 210,
+    height: 210,
     borderRadius: 40,
   },
   contentContainer: {
