@@ -1,17 +1,28 @@
-import React from 'react'
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { Feather } from '@expo/vector-icons'
-import Home from '../screens/Home'
-import Search from '../screens/Search'
-import Favorite from '../screens/Favorite'
-import HomeStackNavigation from './HomeStackNavigation'
-import FavoriteStackNavigation from './FavoriteStackNavigation';
-import KeywordSearchStackNavigation from './KeywordSearchStackNavigation';
+import React from 'react';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Feather } from '@expo/vector-icons';
+import HomeStackNavigation from './HomeStackNavigation';
+import Search from '../screens/Search';
+import AccountStackNavigation from './AccountStackNavigation';
 
-const Tab = createBottomTabNavigator()
+const Tab = createBottomTabNavigator();
 
 const BottomTabNavigator = (): JSX.Element => (
-  <Tab.Navigator>
+  <Tab.Navigator
+    screenOptions={{
+      tabBarActiveTintColor: '#007bff',
+      tabBarInactiveTintColor: '#333',
+      tabBarLabelStyle: {
+        fontSize: 14,
+      },
+      tabBarStyle: [
+        {
+          display: 'flex',
+        },
+        null,
+      ],
+    }}
+  >
     <Tab.Screen
       name="Beranda"
       component={HomeStackNavigation}
@@ -33,16 +44,16 @@ const BottomTabNavigator = (): JSX.Element => (
       }}
     />
     <Tab.Screen
-      name="FavoriteNavigation"
-      component={FavoriteStackNavigation}
+      name="Account"
+      component={AccountStackNavigation}
       options={{
         tabBarIcon: ({ color }) => (
-          <Feather name="heart" size={28} color={color} />
+          <Feather name="user" size={28} color={color} />
         ),
         headerShown: false,
       }}
     />
   </Tab.Navigator>
-)
+);
 
-export default BottomTabNavigator
+export default BottomTabNavigator;
