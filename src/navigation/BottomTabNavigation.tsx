@@ -25,7 +25,7 @@ const BottomTabNavigator = (): JSX.Element => (
     />
     <Tab.Screen
       name="Search"
-      component={Search}
+      component={KeywordSearchStackNavigation}
       options={{
         tabBarIcon: ({ color }) => (
           <Feather name="search" size={28} color={color} />
@@ -34,7 +34,7 @@ const BottomTabNavigator = (): JSX.Element => (
       }}
     />
     <Tab.Screen
-      name="Favorite Film"
+      name="Favorite"
       component={FavoriteStackNavigation}
       options={{
         tabBarIcon: ({ color }) => (

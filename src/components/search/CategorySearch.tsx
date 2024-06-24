@@ -12,6 +12,7 @@ import {
 import { StackActions, useNavigation } from "@react-navigation/native"; // Import navigation utilities
 import { API_ACCESS_TOKEN } from "@env";
 
+
 const categories: string[] = [
   "Action",
   "Adventure",
@@ -36,36 +37,48 @@ const categories: string[] = [
 
 const CategorySearch = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("");
-  const [results, setResults] = useState<any[]>([]); // State to store fetched movie results
+  const [results, setResults] = useState<any[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
   const navigation = useNavigation();
 
   const handleCategorySelect = (category: string) => {
     setSelectedCategory(category);
   };
 
+
+
   const getMovieList = (query: string) => {
+  setLoading(true);
     const path = `search/movie?query=${query}&page=1`;
     const url = `https://api.themoviedb.org/3/${path}`;
     const options = {
       method: "GET",
       headers: {
         accept: "application/json",
-        Authorization: `Bearer ${API_ACCESS_TOKEN}`, // Replace with your actual API access token
+        Authorization: `Bearer ${API_ACCESS_TOKEN}`,
       },
     };
 
     fetch(url, options)
       .then((response) => response.json())
       .then((data) => {
-        setResults(data.results); // Set fetched results into state
-        console.log(data);
+        setResults(data.results);
+        setLoading(false);
+        navigation.dispatch(
+          StackActions.push("CategorySearchResults", {
+            results: data.results,
+            category: selectedCategory,
+          })
+        );
       })
-      .catch((error) => console.error(error));
+      .catch((error) => {
+          setLoading(false);
+          console.error(error);
+        });
   };
 
   const handleSearch = () => {
     if (selectedCategory) {
-      // Perform API call with selectedCategory
       getMovieList(selectedCategory);
     } else {
       Alert.alert("Category not selected", "Please select a category.");
@@ -100,30 +113,31 @@ const CategorySearch = () => {
         {categories.map((category: string, index: number) => (
           <TouchableOpacity
             key={index}
-            style={styles.button}
+            style={[
+              styles.button,
+              selectedCategory === category && styles.selectedButton,
+            ]}
             onPress={() => handleCategorySelect(category)}
           >
-            <Text style={styles.buttonText}>{category}</Text>
+            <Text
+              style={[
+                styles.buttonText,
+                selectedCategory === category && styles.selectedButtonText,
+              ]}
+            >
+              {category}
+            </Text>
           </TouchableOpacity>
         ))}
       </View>
       <TouchableOpacity style={styles.searchButton} onPress={handleSearch}>
         <Text style={styles.searchButtonText}>Search</Text>
       </TouchableOpacity>
-      <View style={styles.selectedCategoryContainer}>
-        {selectedCategory ? (
-          <Text style={styles.selectedCategoryText}>
-            Selected Category: {selectedCategory}
-          </Text>
-        ) : null}
-      </View>
-      <FlatList
-        style={styles.list}
-        horizontal
-        data={results}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.id.toString()}
-      />
+      {loading && (
+          <View style={styles.loadingContainer}>
+            <Text>Loading...</Text>
+          </View>
+        )}
     </ScrollView>
   );
 };
@@ -196,15 +210,15 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingTop: 10,
   },
-  selectedCategoryContainer: {
-    alignItems: "center",
-    marginVertical: 10,
-  },
-  selectedCategoryText: {
-    fontSize: 18,
-    fontWeight: "bold",
-    color: "#333",
-  },
+  selectedButton: {
+      backgroundColor: "#8978A4",
+   },
+   selectedButtonText: {
+       color: "#FFF",
+   },
+   loadingContainer: {
+       marginTop: 20,
+     },
 });
 
 export default CategorySearch;
