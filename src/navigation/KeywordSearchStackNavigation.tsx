@@ -17,7 +17,6 @@ import CategorySearchResults from "../screens/CategorySearchResults";
 const Stack = createNativeStackNavigator();
 
 const KeywordSearchStackNavigation = (): JSX.Element => {
-    console.log('KeywordSearchStackNavigation Component Rendered');
 return (
   <Stack.Navigator initialRouteName="Search">
   <Stack.Screen

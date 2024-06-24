@@ -10,7 +10,7 @@ const FavoriteStackNavigation = (): JSX.Element => {
 
     <Stack.Navigator initialRouteName="Favorite">
       <Stack.Screen
-        name="Favorite"
+        name="FavoriteScreen"
         component={Favorite}
         options={{ title: 'Favorite Movies' }}
       />
