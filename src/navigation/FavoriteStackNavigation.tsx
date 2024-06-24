@@ -5,8 +5,9 @@ import MovieDetail from '../screens/MovieDetail';
 
 const Stack = createNativeStackNavigator();
 
-const FavoriteStackNavigation = () => {
+const FavoriteStackNavigation = (): JSX.Element => {
   return (
+
     <Stack.Navigator initialRouteName="Favorite">
       <Stack.Screen
         name="Favorite"

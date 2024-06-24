@@ -31,7 +31,7 @@ const Search = () => {
             </TouchableOpacity>
           ))}
         </View>
-        {selectedBar === "keyword" ? <KeywordSearchStackNavigation /> : <CategorySearchStackNavigation />}
+        {selectedBar === "keyword" ? <KeywordSearch /> : <CategorySearch />}
       </View>
     </View>
   );

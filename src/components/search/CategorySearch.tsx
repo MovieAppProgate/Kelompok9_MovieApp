@@ -11,6 +11,7 @@ import {
 import { StackActions, useNavigation } from "@react-navigation/native"; // Import navigation utilities
 import { API_ACCESS_TOKEN } from "@env";
 
+
 const categories: string[] = [
   "Action",
   "Adventure",
@@ -35,36 +36,48 @@ const categories: string[] = [
 
 const CategorySearch = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("");
-  const [results, setResults] = useState<any[]>([]); // State to store fetched movie results
+  const [results, setResults] = useState<any[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
   const navigation = useNavigation();
 
   const handleCategorySelect = (category: string) => {
     setSelectedCategory(category);
   };
 
+
+
   const getMovieList = (query: string) => {
+  setLoading(true);
     const path = `search/movie?query=${query}&page=1`;
     const url = `https://api.themoviedb.org/3/${path}`;
     const options = {
       method: "GET",
       headers: {
         accept: "application/json",
-        Authorization: `Bearer ${API_ACCESS_TOKEN}`, // Replace with your actual API access token
+        Authorization: `Bearer ${API_ACCESS_TOKEN}`,
       },
     };
 
     fetch(url, options)
       .then((response) => response.json())
       .then((data) => {
-        setResults(data.results); // Set fetched results into state
-        console.log(data);
+        setResults(data.results);
+        setLoading(false);
+        navigation.dispatch(
+          StackActions.push("CategorySearchResults", {
+            results: data.results,
+            category: selectedCategory,
+          })
+        );
       })
-      .catch((error) => console.error(error));
+      .catch((error) => {
+          setLoading(false);
+          console.error(error);
+        });
   };
 
   const handleSearch = () => {
     if (selectedCategory) {
-      // Perform API call with selectedCategory
       getMovieList(selectedCategory);
     } else {
       Alert.alert("Category not selected", "Please select a category.");
@@ -113,6 +126,11 @@ const CategorySearch = () => {
       <TouchableOpacity style={styles.searchButton} onPress={handleSearch}>
         <Text style={styles.searchButtonText}>Search</Text>
       </TouchableOpacity>
+      {loading && (
+          <View style={styles.loadingContainer}>
+            <Text>Loading...</Text>
+          </View>
+        )}
     </ScrollView>
   );
 };
@@ -173,6 +191,9 @@ const styles = StyleSheet.create({
    selectedButtonText: {
        color: "#FFF",
    },
+   loadingContainer: {
+       marginTop: 20,
+     },
 });
 
 export default CategorySearch;
