@@ -7,6 +7,7 @@ import Favorite from '../screens/Favorite'
 import HomeStackNavigation from './HomeStackNavigation'
 import FavoriteStackNavigation from './FavoriteStackNavigation';
 import KeywordSearchStackNavigation from './KeywordSearchStackNavigation';
+import AccountStackNavigation from './AccountStackNavigation'
 
 const Tab = createBottomTabNavigator()
 
@@ -42,7 +43,19 @@ const BottomTabNavigator = (): JSX.Element => (
         headerShown: false,
       }}
     />
+    <Tab.Screen
+      name="Account"
+      component={AccountStackNavigation}
+      options={{
+        tabBarIcon: ({ color }) => (
+          <Feather name="user" size={28} color={color} />
+        ),
+        headerShown: false,
+      }}
+    />
+
   </Tab.Navigator>
+  
 )
 
 export default BottomTabNavigator

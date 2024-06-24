@@ -1,10 +1,8 @@
-// screens/Search.js (or any other appropriate directory)
+
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import KeywordSearch from "../components/search/KeywordSearch";
 import CategorySearch from "../components/search/CategorySearch";
-import KeywordSearchStackNavigation from "../navigation/KeywordSearchStackNavigation";
-import CategorySearchStackNavigation from "../navigation/CategorySearchStackNavigation";
 
 const Search = () => {
   const [selectedBar, setSelectedBar] = useState("keyword");
@@ -39,7 +37,6 @@ const Search = () => {
 
 const styles = StyleSheet.create({
   container: {
-//     flex: 1,
     padding: 16,
   },
   topBarContainer: {

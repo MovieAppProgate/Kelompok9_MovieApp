@@ -7,6 +7,7 @@ import {
   ScrollView,
   Alert,
   FlatList,
+  Image,
 } from "react-native";
 import { StackActions, useNavigation } from "@react-navigation/native"; // Import navigation utilities
 import { API_ACCESS_TOKEN } from "@env";
@@ -92,8 +93,14 @@ const CategorySearch = () => {
         navigation.dispatch(StackActions.push("MovieDetail", { id: item.id }));
       }}
     >
-      {/* Replace MovieItem with your actual component for displaying movie details */}
-      <Text>{item.title}</Text>
+      <Image
+        style={styles.poster}
+        source={{ uri: `https://image.tmdb.org/t/p/w500/${item.poster_path}` }}
+      />
+      <View style={styles.detailsContainer}>
+        <Text style={styles.title}>{item.title}</Text>
+        <Text style={styles.rating}>{`Rating: ${item.vote_average}`}</Text>
+      </View>
     </TouchableOpacity>
   );
 
@@ -104,23 +111,23 @@ const CategorySearch = () => {
     >
       <View style={styles.categoryContainer}>
         {categories.map((category: string, index: number) => (
-           <TouchableOpacity
-              key={index}
+          <TouchableOpacity
+            key={index}
+            style={[
+              styles.button,
+              selectedCategory === category && styles.selectedButton,
+            ]}
+            onPress={() => handleCategorySelect(category)}
+          >
+            <Text
               style={[
-                styles.button,
-                selectedCategory === category && styles.selectedButton,
+                styles.buttonText,
+                selectedCategory === category && styles.selectedButtonText,
               ]}
-              onPress={() => handleCategorySelect(category)}
             >
-              <Text
-                style={[
-                  styles.buttonText,
-                  selectedCategory === category && styles.selectedButtonText,
-                ]}
-              >
-                {category}
-              </Text>
-            </TouchableOpacity>
+              {category}
+            </Text>
+          </TouchableOpacity>
         ))}
       </View>
       <TouchableOpacity style={styles.searchButton} onPress={handleSearch}>
@@ -148,7 +155,7 @@ const styles = StyleSheet.create({
   },
   button: {
     width: "48%",
-    marginVertical: 6,
+    marginVertical: 5,
     paddingVertical: 10,
     backgroundColor: "#DCCBFF",
     borderRadius: 5,
@@ -172,14 +179,32 @@ const styles = StyleSheet.create({
     color: "#FFF",
   },
   itemContainer: {
-    flex: 1,
+    flexDirection: "row",
     alignItems: "center",
-    justifyContent: "center",
-    margin: 5,
+    marginHorizontal: 2, 
+    marginTop:-100,
     padding: 10,
-    backgroundColor: "#F0F0F0",
+    backgroundColor: "#FFF",
+    borderRadius: 3,
+    height: 350,
+    width: 200, 
+  },
+  poster: {
+    width: 80,
+    height: 120,
     borderRadius: 5,
-    height: 150,
+    marginRight: 10,
+  },
+  detailsContainer: {
+    flex: 1,
+  },
+  title: {
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+  rating: {
+    marginTop: 5,
+    color: "#888",
   },
   list: {
     paddingHorizontal: 10,

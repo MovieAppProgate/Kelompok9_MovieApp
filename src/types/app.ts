@@ -45,5 +45,5 @@ export interface MovieListProps {
     movie: Movie;
     size: { width: number; height: number };
     coverType: "poster" | "backdrop";
-    
+    onPress?: () => void;
   }
