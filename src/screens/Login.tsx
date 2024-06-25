@@ -58,6 +58,7 @@ const Login: React.FC = () => {
         placeholder="Username"
         value={username}
         onChangeText={setUsername}
+        placeholderTextColor="#212121"
       />
       <View style={styles.passwordContainer}>
         <TextInput
@@ -66,6 +67,7 @@ const Login: React.FC = () => {
           value={password}
           onChangeText={setPassword}
           secureTextEntry={!isPasswordVisible}
+          placeholderTextColor="#212121"
         />
         <TouchableOpacity
           onPress={() => setIsPasswordVisible(!isPasswordVisible)}
@@ -94,17 +96,18 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     padding: 16,
-    backgroundColor: '#F5F5F5',
+    backgroundColor: '#212121', // Warna background hitam (#212121)
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
     textAlign: 'center',
+    color: '#ffffff', // Warna teks putih (#ffffff)
   },
   titledesc: {
     textAlign: 'center',
     marginBottom: 24,
-    color: '#a6a6a6',
+    color: '#ffee2b', // Warna gold (#ffee2b)
   },
   input: {
     height: 50,
@@ -113,17 +116,18 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     paddingHorizontal: 16,
     marginBottom: 16,
-    backgroundColor: '#FFF',
+    backgroundColor: '#ffffff', // Warna putih (#ffffff)
+    color: '#212121', // Warna teks hitam (#212121)
   },
   button: {
     height: 50,
-    backgroundColor: '#6200EE',
+    backgroundColor: '#ffee2b', // Warna gold (#ffee2b)
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 8,
   },
   buttonText: {
-    color: '#FFF',
+    color: '#212121', // Warna teks hitam (#212121)
     fontSize: 16,
     fontWeight: 'bold',
   },
@@ -133,13 +137,14 @@ const styles = StyleSheet.create({
     borderColor: '#CCC',
     borderWidth: 1,
     borderRadius: 8,
-    backgroundColor: '#FFF',
+    backgroundColor: '#ffffff', // Warna putih (#ffffff)
     marginBottom: 16,
   },
   passwordInput: {
     flex: 1,
     height: 50,
     paddingHorizontal: 16,
+    color: '#212121', // Warna teks hitam (#212121)
   },
   visibilityToggle: {
     padding: 10,

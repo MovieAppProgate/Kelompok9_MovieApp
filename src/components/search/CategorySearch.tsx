@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -8,35 +8,34 @@ import {
   Alert,
   FlatList,
   Image,
-} from "react-native";
-import { StackActions, useNavigation } from "@react-navigation/native"; // Import navigation utilities
-import { API_ACCESS_TOKEN } from "@env";
-
+} from 'react-native';
+import { StackActions, useNavigation } from '@react-navigation/native';
+import { API_ACCESS_TOKEN } from '@env';
 
 const categories: string[] = [
-  "Action",
-  "Adventure",
-  "Animation",
-  "Comedy",
-  "Crime",
-  "Documentary",
-  "Drama",
-  "Family",
-  "Fantasy",
-  "History",
-  "Horror",
-  "Music",
-  "Mystery",
-  "Romance",
-  "Science Fiction",
-  "TV Movie",
-  "Thriller",
-  "War",
-  "Western",
+  'Action',
+  'Adventure',
+  'Animation',
+  'Comedy',
+  'Crime',
+  'Documentary',
+  'Drama',
+  'Family',
+  'Fantasy',
+  'History',
+  'Horror',
+  'Music',
+  'Mystery',
+  'Romance',
+  'Science Fiction',
+  'TV Movie',
+  'Thriller',
+  'War',
+  'Western',
 ];
 
 const CategorySearch = () => {
-  const [selectedCategory, setSelectedCategory] = useState<string>("");
+  const [selectedCategory, setSelectedCategory] = useState<string>('');
   const [results, setResults] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const navigation = useNavigation();
@@ -45,16 +44,14 @@ const CategorySearch = () => {
     setSelectedCategory(category);
   };
 
-
-
   const getMovieList = (query: string) => {
-  setLoading(true);
+    setLoading(true);
     const path = `search/movie?query=${query}&page=1`;
     const url = `https://api.themoviedb.org/3/${path}`;
     const options = {
-      method: "GET",
+      method: 'GET',
       headers: {
-        accept: "application/json",
+        accept: 'application/json',
         Authorization: `Bearer ${API_ACCESS_TOKEN}`,
       },
     };
@@ -65,23 +62,23 @@ const CategorySearch = () => {
         setResults(data.results);
         setLoading(false);
         navigation.dispatch(
-          StackActions.push("CategorySearchResults", {
+          StackActions.push('CategorySearchResults', {
             results: data.results,
             category: selectedCategory,
           })
         );
       })
       .catch((error) => {
-          setLoading(false);
-          console.error(error);
-        });
+        setLoading(false);
+        console.error(error);
+      });
   };
 
   const handleSearch = () => {
     if (selectedCategory) {
       getMovieList(selectedCategory);
     } else {
-      Alert.alert("Category not selected", "Please select a category.");
+      Alert.alert('Category not selected', 'Please select a category.');
     }
   };
 
@@ -89,8 +86,8 @@ const CategorySearch = () => {
     <TouchableOpacity
       style={styles.itemContainer}
       onPress={() => {
-        console.log("Navigating to MovieDetail with ID:", item.id);
-        navigation.dispatch(StackActions.push("MovieDetail", { id: item.id }));
+        console.log('Navigating to MovieDetail with ID:', item.id);
+        navigation.dispatch(StackActions.push('MovieDetail', { id: item.id }));
       }}
     >
       <Image
@@ -134,10 +131,10 @@ const CategorySearch = () => {
         <Text style={styles.searchButtonText}>Search</Text>
       </TouchableOpacity>
       {loading && (
-          <View style={styles.loadingContainer}>
-            <Text>Loading...</Text>
-          </View>
-        )}
+        <View style={styles.loadingContainer}>
+          <Text>Loading...</Text>
+        </View>
+      )}
     </ScrollView>
   );
 };
@@ -145,49 +142,50 @@ const CategorySearch = () => {
 const styles = StyleSheet.create({
   container: {
     paddingVertical: 20,
-    alignItems: "center",
+    alignItems: 'center',
+    backgroundColor: '#212121', // Change background color to black
   },
   categoryContainer: {
-    width: "90%",
-    flexDirection: "row",
-    flexWrap: "wrap",
-    justifyContent: "space-between",
+    width: '90%',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
   },
   button: {
-    width: "48%",
+    width: '48%',
     marginVertical: 5,
     paddingVertical: 10,
-    backgroundColor: "#DCCBFF",
+    backgroundColor: '#DCCBFF', // Original color
     borderRadius: 5,
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   buttonText: {
     fontSize: 16,
-    color: "#4A3F90",
+    color: '#4A3F90',
   },
   searchButton: {
-    width: "90%",
+    width: '90%',
     paddingVertical: 15,
     marginVertical: 20,
-    backgroundColor: "#7F58FF",
+    backgroundColor: '#ffee2b', // Change to gold color
     borderRadius: 20,
-    alignItems: "center",
+    alignItems: 'center',
   },
   searchButtonText: {
     fontSize: 18,
-    color: "#FFF",
+    color: '#212121', // Change to black color
   },
   itemContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    marginHorizontal: 2, 
-    marginTop:-100,
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginHorizontal: 2,
+    marginTop: -100,
     padding: 10,
-    backgroundColor: "#FFF",
+    backgroundColor: '#FFF',
     borderRadius: 3,
     height: 350,
-    width: 200, 
+    width: 200,
   },
   poster: {
     width: 80,
@@ -200,25 +198,26 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 16,
-    fontWeight: "bold",
+    fontWeight: 'bold',
+    color: '#ffffff', // Change to white color
   },
   rating: {
     marginTop: 5,
-    color: "#888",
+    color: '#888',
   },
   list: {
     paddingHorizontal: 10,
     paddingTop: 10,
   },
   selectedButton: {
-      backgroundColor: "#8978A4",
-   },
-   selectedButtonText: {
-       color: "#FFF",
-   },
-   loadingContainer: {
-       marginTop: 20,
-     },
+    backgroundColor: '#212121', // Change to black color
+  },
+  selectedButtonText: {
+    color: '#ffee2b', // Change to gold color
+  },
+  loadingContainer: {
+    marginTop: 20,
+  },
 });
 
 export default CategorySearch;

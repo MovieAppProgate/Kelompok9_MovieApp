@@ -143,7 +143,7 @@ const MovieDetail = ({ route }: any): JSX.Element => {
             <Text style={styles.title}>{movie.title}</Text>
             <View style={styles.flexrow2}>
               <View style={styles.ratingContainer}>
-                <FontAwesome name="star" size={16} color="yellow" />
+                <FontAwesome name="star" size={16} color="#ffee2b" />
                 <Text style={styles.rating}>
                   {movie.vote_average.toFixed(1)}
                 </Text>
@@ -159,7 +159,7 @@ const MovieDetail = ({ route }: any): JSX.Element => {
                 <FontAwesome
                   name={isFavorite ? "heart" : "heart-o"}
                   size={24}
-                  color="pink"
+                  color="#ffee2b"
                 />
               </TouchableOpacity>
             </View>
@@ -187,7 +187,7 @@ const MovieDetail = ({ route }: any): JSX.Element => {
           </View>
         </View>
         <View style={styles.header}>
-          <View style={styles.purpleLabel}></View>
+          <View style={styles.goldLabel}></View>
           <Text style={styles.titleR}>Recommendation</Text>
         </View>
         <FlatList
@@ -212,8 +212,9 @@ const MovieDetail = ({ route }: any): JSX.Element => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#fff",
+    backgroundColor: "#212121", // Warna background hitam (#212121)
     flex: 1,
+    paddingHorizontal: 16,
   },
   header: {
     flexDirection: "row",
@@ -230,17 +231,18 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
   },
-  purpleLabel: {
+  goldLabel: {
     width: 20,
     height: 40,
     borderRadius: 20,
-    backgroundColor: "#8978A4",
+    backgroundColor: "#ffee2b", // Warna gold (#ffee2b)
     marginRight: 12,
     marginLeft: 8,
   },
   titleR: {
     fontSize: 20,
     fontWeight: "900",
+    color: "#ffffff", // Warna teks putih (#ffffff)
   },
   backdrop: {
     width: "100%",
@@ -256,7 +258,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: "bold",
-    color: "#fff",
+    color: "#ffffff", // Warna teks putih (#ffffff)
   },
   ratingContainer: {
     flexDirection: "row",
@@ -264,17 +266,18 @@ const styles = StyleSheet.create({
     gap: 2,
   },
   rating: {
-    color: "yellow",
+    color: "#ffee2b", // Warna gold (#ffee2b)
     fontWeight: "700",
   },
   overview: {
     padding: 16,
     fontSize: 16,
     marginVertical: 8,
-    color: "#000",
+    color: "#ffffff", // Warna teks putih (#ffffff)
   },
   detailLabel: {
     fontWeight: "bold",
+    color: "#ffffff", // Warna teks putih (#ffffff)
   },
   recommendationList: {
     paddingLeft: 8,
@@ -288,6 +291,7 @@ const styles = StyleSheet.create({
   flex: {
     flex: 1,
     marginHorizontal: 8,
+    color: "#ffffff", // Warna teks putih (#ffffff)
   },
 });
 

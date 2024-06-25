@@ -41,17 +41,17 @@ const AccountUser = () => {
 
       <View style={styles.contentContainer}>
         <TouchableOpacity style={styles.iconButton} onPress={handleUserDetailPress}>
-          <Feather name="info" size={24} color="#007bff" />
+          <Feather name="info" size={24} color="#ffee2b" />
           <Text style={styles.iconText}>User Detail</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.iconButton} onPress={handleFAQPress}>
-          <Feather name="help-circle" size={24} color="#28a745" />
+          <Feather name="help-circle" size={24} color="#ffee2b" />
           <Text style={styles.iconText}>FAQ</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.iconButton} onPress={handleLogoutPress}>
-          <Feather name="log-out" size={24} color="#dc3545" />
+          <Feather name="log-out" size={24} color="#ffee2b" />
           <Text style={styles.iconText}>Logout</Text>
         </TouchableOpacity>
       </View>
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
-    backgroundColor: '#f5f5f5',
+    backgroundColor: '#212121',
   },
   headerContainer: {
     flexDirection: 'row',
@@ -72,12 +72,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   headerImage: {
-    width: 80,
-    height: 80,
+    width: 180,
+    height: 180,
     borderRadius: 40,
   },
   contentContainer: {
-    backgroundColor: '#fff',
+    backgroundColor: '#1E1E1E',
     borderRadius: 8,
     padding: 16,
     width: '100%',
@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
   iconButton: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#f0f0f0',
+    backgroundColor: '#333',
     padding: 12,
     borderRadius: 8,
     marginBottom: 16,
@@ -101,6 +101,7 @@ const styles = StyleSheet.create({
   iconText: {
     marginLeft: 12,
     fontSize: 18,
+    color: '#ffee2b',
     textAlign: 'left',
   },
 });

@@ -1,13 +1,13 @@
-import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
-import { Feather } from '@expo/vector-icons'
+import React from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+import { Feather } from '@expo/vector-icons';
 
 const UserDetail = (): JSX.Element => {
   const user = {
     name: 'Progate Kelompok 9',
     gender: 'Male',
     address: 'Di Indonesia'
-  }
+  };
 
   return (
     <View style={styles.container}>
@@ -37,8 +37,8 @@ const UserDetail = (): JSX.Element => {
         </View>
       </View>
     </View>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 16,
-    backgroundColor: '#f5f5f5',
+    backgroundColor: '#212121', // Warna background hitam (#212121)
   },
   card: {
     backgroundColor: '#fff',
@@ -73,11 +73,12 @@ const styles = StyleSheet.create({
   label: {
     fontSize: 18,
     fontWeight: 'bold',
+    color: '#212121', // Warna teks putih (#ffffff)
   },
   value: {
     fontSize: 16,
     color: '#555',
   },
-})
+});
 
 export default UserDetail

@@ -28,7 +28,7 @@ const movieLists: MovieListProps[] = [
 
 const Home = (): JSX.Element => {
   return (
-    <ScrollView>
+    <ScrollView style={styles.scrollView}>
       <View style={styles.container}>
         {movieLists.map((movieList) => (
           <MovieList
@@ -38,18 +38,20 @@ const Home = (): JSX.Element => {
             key={movieList.title}
           />
         ))}
-        <StatusBar translucent={false} />
       </View>
     </ScrollView>
   )
 }
 
 const styles = StyleSheet.create({
+  scrollView: {
+    backgroundColor: '#212121', // Warna background hitam (#212121)
+  },
   container: {
     marginTop: StatusBar.currentHeight ?? 32,
     alignItems: 'center',
     justifyContent: 'center',
-    rowGap: 16,
+    paddingVertical: 16,
   },
 })
 

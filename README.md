@@ -12,16 +12,17 @@ This application is an example of a React Native app using Expo to facilitate cr
 
 ## Features
 
+- Login Form
 - Display a list of latest movies
 - Search for movies by title
 - View movie details including synopsis, rating, etc.
 - Save movies to favorites list
+- Account Menu
 
 ## Technology Stack
 
 - React Native
 - Expo
-- Axios for making HTTP requests
 - React Navigation for navigation between screens
 
 ## Installation

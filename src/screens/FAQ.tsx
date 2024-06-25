@@ -50,30 +50,35 @@ const FAQ = () => {
   );
 };
 
-
 const styles = StyleSheet.create({
-    scrollViewContent: {
-      flexGrow: 1,
-      padding: 16,
-      backgroundColor: '#f5f5f5',
-    },
-    container: {
-      flex: 1,
-    },
-    title: {
-      fontSize: 24,
-      fontWeight: 'bold',
-      marginBottom: 16,
-    },
-    question: {
-      fontSize: 18,
-      fontWeight: 'bold',
-      marginBottom: 8,
-    },
-    answer: {
-      fontSize: 16,
-      marginBottom: 16,
-    },
-  });
-  
-  export default FAQ;
+  scrollViewContent: {
+    flexGrow: 1,
+    padding: 16,
+    backgroundColor: '#212121', // Warna background hitam (#212121)
+  },
+  container: {
+    flex: 1,
+    alignItems: 'center', // Pusatkan konten secara vertikal di tengah layar
+    paddingHorizontal: 20,
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 24,
+    color: '#ffffff', // Warna teks putih (#ffffff)
+    textAlign: 'center', // Pusatkan teks secara horizontal
+  },
+  question: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 8,
+    color: '#ffee2b', // Warna teks gold (#ffee2b)
+  },
+  answer: {
+    fontSize: 16,
+    marginBottom: 16,
+    color: '#ffffff', // Warna teks putih (#ffffff)
+  },
+});
+
+export default FAQ;
