@@ -60,14 +60,13 @@ We welcome contributions from anyone. If you would like to contribute, please fo
 
 ## Development Team
 
+ Kelompok 9: 
+ 
 - Fahd Erlangga Braja Musti (1957887840-104)
-![image](https://github.com/MovieAppProgate/Kelompok9_MovieApp/assets/93859291/09f55094-0ba3-48e0-82d3-93f8361a20d7)
 
 - Muhammad Aenul Fahir (1957887840-1024)
-![image](https://github.com/MovieAppProgate/Kelompok9_MovieApp/assets/93859291/07008e4b-ba8c-4693-8f57-98e73a65354a)
 
 - Widodo Saputra (1957887840-1051)
-![image](https://github.com/MovieAppProgate/Kelompok9_MovieApp/assets/93859291/32bce969-bdd4-460a-a7a7-9af6f796bc8c)
 
 
 ## Download Aplication
