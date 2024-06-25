@@ -1,6 +1,6 @@
 # Movie App (React Native with Expo)
 
-![Preview](./preview.png)
+![Preview](./assets/preview.png)
 
 ![License](https://img.shields.io/github/license/MovieAppProgate/Kelompok9_MovieApp)
 ![Issues](https://img.shields.io/github/issues/MovieAppProgate/Kelompok9_MovieApp)
@@ -12,12 +12,12 @@ This application is an example of a React Native app using Expo to facilitate cr
 
 ## Features
 
-- Login Form
-- Display a list of latest movies
-- Search for movies by title
-- View movie details including synopsis, rating, etc.
-- Save movies to favorites list
-- Account Menu
+- Login Form: Secure access to user accounts.
+- Latest Movies List: Display the newest releases.
+- Movie Search: Find movies by title.
+- Detailed Movie View: Explore synopsis, rating, and more.
+- Favorites: Save favorite movies for quick access.
+- Account Menu: Manage user profile and settings.
 
 ## Technology Stack
 
