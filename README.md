@@ -59,8 +59,8 @@ Contributions in the form of pull requests are welcome. For major changes, pleas
 [MIT](LICENSE)
 
 ## Download Aplication
-   ```bash
-   https://s.id/MovieProgate9
+    ```bash
+    https://s.id/MovieProgate9
 
 Created with ❤️ by Kelompok 9 Progate
    
