@@ -1,12 +1,12 @@
 # Movie App (React Native with Expo)
 
-![Preview](./assets/preview.png)
-
 ![License](https://img.shields.io/github/license/MovieAppProgate/Kelompok9_MovieApp)
 ![Issues](https://img.shields.io/github/issues/MovieAppProgate/Kelompok9_MovieApp)
 ![Forks](https://img.shields.io/github/forks/MovieAppProgate/Kelompok9_MovieApp)
 ![Stars](https://img.shields.io/github/stars/MovieAppProgate/Kelompok9_MovieApp)
 ![Contributors](https://img.shields.io/github/contributors/MovieAppProgate/Kelompok9_MovieApp)
+
+![Preview](./assets/preview.png)
 
 This application is an example of a React Native app using Expo to facilitate cross-platform development and deployment.
 
