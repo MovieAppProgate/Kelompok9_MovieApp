@@ -8,8 +8,6 @@
 
 ![Preview](./assets/preview.png)
 
-
-
 This application is an example of a React Native app using Expo to facilitate cross-platform development and deployment.
 
 ## Features
@@ -50,17 +48,32 @@ Make sure you have Node.js and Expo CLI installed on your system. Then, follow t
    
 4. Open the Expo Go app on your device or emulator to view the app.
 
-## Contributing
+## Contributions
 
-Contributions in the form of pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+We welcome contributions from anyone. If you would like to contribute, please follow these steps:
 
-## License
+1. Fork this repository
+2. Create a new branch (`git checkout -b feature-new`)
+3. Commit your changes (`git commit -m 'Added new feature'`)
+4. Push to the branch (`git push origin new-features`)
+5. Create a pull request
 
-[MIT](LICENSE)
+## Development Team
+
+- Fahd Erlangga Braja Musti (1957887840-104)
+![image](https://github.com/MovieAppProgate/Kelompok9_MovieApp/assets/93859291/09f55094-0ba3-48e0-82d3-93f8361a20d7)
+
+- Muhammad Aenul Fahir (1957887840-1024)
+![image](https://github.com/MovieAppProgate/Kelompok9_MovieApp/assets/93859291/07008e4b-ba8c-4693-8f57-98e73a65354a)
+
+- Widodo Saputra (1957887840-1051)
+![image](https://github.com/MovieAppProgate/Kelompok9_MovieApp/assets/93859291/32bce969-bdd4-460a-a7a7-9af6f796bc8c)
+
 
 ## Download Aplication
-    ```bash
-    https://s.id/MovieProgate9
+   Click on the following link to download the app:
+   
+   [Download MovieProgate9](https://s.id/MovieProgate9)
 
 Created with ❤️ by Kelompok 9 Progate
    
