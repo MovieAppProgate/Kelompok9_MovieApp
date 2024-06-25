@@ -8,6 +8,8 @@
 
 ![Preview](./assets/preview.png)
 
+
+
 This application is an example of a React Native app using Expo to facilitate cross-platform development and deployment.
 
 ## Features
@@ -55,6 +57,10 @@ Contributions in the form of pull requests are welcome. For major changes, pleas
 ## License
 
 [MIT](LICENSE)
+
+## Download Aplication
+     ```bash
+     https://s.id/MovieProgate9
 
 ---
 
