@@ -4,6 +4,7 @@ import BottomTabNavigator from './src/navigation/BottomTabNavigation'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Login from './src/screens/Login';
 
+
 const Stack = createNativeStackNavigator();
 
 export default function App(): JSX.Element {

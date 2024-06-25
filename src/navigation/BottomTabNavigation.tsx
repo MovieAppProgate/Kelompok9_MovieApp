@@ -13,12 +13,13 @@ const Tab = createBottomTabNavigator()
 
 const BottomTabNavigator = (): JSX.Element => (
   <Tab.Navigator>
+     
     <Tab.Screen
       name="Beranda"
       component={HomeStackNavigation}
       options={{
         tabBarIcon: ({ color }) => (
-          <Feather name="home" size={28} color={color} />
+          <Feather name="home" size={28} color={'#ffee2b'} />
         ),
         headerShown: false,
       }}
@@ -28,7 +29,7 @@ const BottomTabNavigator = (): JSX.Element => (
       component={KeywordSearchStackNavigation}
       options={{
         tabBarIcon: ({ color }) => (
-          <Feather name="search" size={28} color={color} />
+          <Feather name="search" size={28} color={'#ffee2b'} />
         ),
         headerShown: false,
       }}
@@ -38,7 +39,7 @@ const BottomTabNavigator = (): JSX.Element => (
       component={FavoriteStackNavigation}
       options={{
         tabBarIcon: ({ color }) => (
-          <Feather name="heart" size={28} color={color} />
+          <Feather name="heart" size={28} color={'#ffee2b'} />
         ),
         headerShown: false,
       }}
@@ -48,7 +49,7 @@ const BottomTabNavigator = (): JSX.Element => (
       component={AccountStackNavigation}
       options={{
         tabBarIcon: ({ color }) => (
-          <Feather name="user" size={28} color={color} />
+          <Feather name="user" size={28} color={'#ffee2b'} />
         ),
         headerShown: false,
       }}
@@ -59,3 +60,4 @@ const BottomTabNavigator = (): JSX.Element => (
 )
 
 export default BottomTabNavigator
+

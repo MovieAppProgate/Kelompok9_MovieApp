@@ -8,15 +8,15 @@ const CategorySearchResults = () => {
   const navigation = useNavigation();
   const { results, category } = route.params;
 
-    const ITEM_WIDTH = 100;
+  const ITEM_WIDTH = 100;
 
-    if (!results) {
-        return (
-          <View style={styles.loadingContainer}>
-            <Text>Loading...</Text>
-          </View>
-        );
-      }
+  if (!results) {
+    return (
+      <View style={styles.loadingContainer}>
+        <Text>Loading...</Text>
+      </View>
+    );
+  }
 
   return (
     <View style={styles.container}>
@@ -54,12 +54,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
+    backgroundColor: '#212121',
   },
   title:{
-  fontWeight:'800',
-  fontSize:20,
-  textAlign:"center",
-  paddingBottom:16,
+    fontWeight:'800',
+    fontSize:20,
+    textAlign:"center",
+    paddingBottom:16,
+    color: '#ffee2b',
   },
   itemContainer: {
     flex: 1,
@@ -67,22 +69,19 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     margin: 5,
     padding: 10,
-    backgroundColor: "#F0F0F0",
+    backgroundColor: "#1E1E1E",
     borderRadius: 5,
     height: 150,
   },
-  itemContainer: {
-      margin: 8,
-      alignItems: "center",
-    },
-    list: {
-      paddingBottom: 16,
-    },
-    loadingContainer: {
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      },
+  list: {
+    paddingBottom: 16,
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: '#212121',
+  },
 });
 
 export default CategorySearchResults;

@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from 'react'
-import { View, Text, StyleSheet, FlatList } from 'react-native'
-import type { MovieListProps, Movie } from '../../types/app'
-import { API_ACCESS_TOKEN } from '@env'
-import MovieItem from './MovieItem'
-
-
+import React, { useState, useEffect } from 'react';
+import { View, Text, StyleSheet, FlatList } from 'react-native';
+import type { MovieListProps, Movie } from '../../types/app';
+import { API_ACCESS_TOKEN } from '@env';
+import MovieItem from './MovieItem';
 
 const MovieList = ({ title, path, coverType }: MovieListProps): JSX.Element => {
   const [movies, setMovies] = useState<Movie[]>([]);
@@ -26,9 +24,9 @@ const MovieList = ({ title, path, coverType }: MovieListProps): JSX.Element => {
   const getMovieList = (): void => {
     const url = `https://api.themoviedb.org/3/${path}`;
     const options = {
-      method: "GET",
+      method: 'GET',
       headers: {
-        accept: "application/json",
+        accept: 'application/json',
         Authorization: `Bearer ${API_ACCESS_TOKEN}`,
       },
     };
@@ -42,12 +40,11 @@ const MovieList = ({ title, path, coverType }: MovieListProps): JSX.Element => {
         console.log(errorResponse);
       });
   };
-  //console.log(movies);
 
   return (
     <View>
       <View style={styles.header}>
-        <View style={styles.purpleLabel}></View>
+        <View style={styles.goldLabel}></View>
         <Text style={styles.title}>{title}</Text>
       </View>
       <FlatList
@@ -74,20 +71,21 @@ const MovieList = ({ title, path, coverType }: MovieListProps): JSX.Element => {
 const styles = StyleSheet.create({
   header: {
     marginLeft: 6,
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
   },
-  purpleLabel: {
+  goldLabel: {
     width: 20,
     height: 40,
     borderRadius: 20,
-    backgroundColor: "#8978A4",
+    backgroundColor: '#ffee2b', // Change to gold color
     marginRight: 12,
   },
   title: {
     fontSize: 20,
-    fontWeight: "900",
+    fontWeight: '900',
+    color: '#ffffff', // Change to white color
   },
   movieList: {
     paddingLeft: 4,

@@ -89,13 +89,15 @@ const Favorite = (): JSX.Element => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#212121", // Warna background hitam (#212121)
+    paddingHorizontal: 8,
   },
   title: {
     fontSize: 24,
     fontWeight: "bold",
     textAlign: "center",
     marginVertical: 16,
+    color: "#ffffff", // Warna teks putih (#ffffff)
   },
   list: {
     paddingHorizontal: 8,

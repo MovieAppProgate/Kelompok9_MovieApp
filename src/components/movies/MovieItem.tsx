@@ -1,24 +1,22 @@
-import React from 'react'
+import React from 'react';
 import {
- ImageBackground,
- Text,
- StyleSheet,
- View,
- TouchableOpacity, // Ditambahkan
-} from 'react-native'
-// Tambahkan code di bawah
-import { useNavigation, StackActions } from '@react-navigation/native'
-import { FontAwesome } from '@expo/vector-icons'
-import { LinearGradient } from 'expo-linear-gradient'
-import type { MovieItemProps } from '../../types/app'
+  ImageBackground,
+  Text,
+  StyleSheet,
+  View,
+  TouchableOpacity,
+} from 'react-native';
+import { useNavigation, StackActions } from '@react-navigation/native';
+import { FontAwesome } from '@expo/vector-icons';
+import { LinearGradient } from 'expo-linear-gradient';
+import type { MovieItemProps } from '../../types/app';
 
 const MovieItem = ({ movie, size, coverType }: MovieItemProps): JSX.Element => {
-    const navigation = useNavigation()
-    const pushAction = StackActions.push('MovieDetail', { id: movie.id })
+  const navigation = useNavigation();
+  const pushAction = StackActions.push('MovieDetail', { id: movie.id });
+
   return (
-    <TouchableOpacity onPress={() => {
-        navigation.dispatch(pushAction)
-      }}>
+    <TouchableOpacity onPress={() => navigation.dispatch(pushAction)}>
       <ImageBackground
         resizeMode="cover"
         style={[size, styles.backgroundImage]}
@@ -42,8 +40,8 @@ const MovieItem = ({ movie, size, coverType }: MovieItemProps): JSX.Element => {
         </LinearGradient>
       </ImageBackground>
     </TouchableOpacity>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   backgroundImage: {
@@ -53,7 +51,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
   movieTitle: {
-    color: 'white',
+    color: '#ffffff',
   },
   gradientStyle: {
     padding: 8,
@@ -69,9 +67,9 @@ const styles = StyleSheet.create({
     gap: 2,
   },
   rating: {
-    color: 'yellow',
+    color: '#ffee2b',
     fontWeight: '700',
   },
-})
+});
 
 export default MovieItem
