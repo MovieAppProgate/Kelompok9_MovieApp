@@ -7,7 +7,10 @@ const Search = () => {
   const [selectedBar, setSelectedBar] = useState("keyword");
 
   return (
-    <View style={styles.container}>
+    <View style={{
+          ...styles.container,
+          backgroundColor: selectedBar === "category" ? "#212121" : "transparent",
+        }}>
       <View>
         <View style={styles.topBarContainer}>
           {["keyword", "category"].map((item, index) => (
@@ -16,7 +19,7 @@ const Search = () => {
               activeOpacity={0.9}
               style={{
                 ...styles.topBar,
-                backgroundColor: item === selectedBar ? "#ffee2b" : "#212121",
+                backgroundColor: item === selectedBar ? "#ffee2b" : "black",
                 borderTopLeftRadius: index === 0 ? 100 : 0,
                 borderBottomLeftRadius: index === 0 ? 100 : 0,
                 borderTopRightRadius: index === 1 ? 100 : 0,
@@ -24,7 +27,10 @@ const Search = () => {
               }}
               onPress={() => setSelectedBar(item)}
             >
-              <Text style={styles.topBarLabel}>{item}</Text>
+              <Text style={{
+                  ...styles.topBarLabel,
+                  color: item === selectedBar ? "black" : "white",
+                }}>{item}</Text>
             </TouchableOpacity>
           ))}
         </View>
@@ -37,6 +43,7 @@ const Search = () => {
 const styles = StyleSheet.create({
   container: {
     padding: 16,
+    paddingTop:30,
   },
   topBarContainer: {
     flexDirection: "row",
@@ -49,7 +56,7 @@ const styles = StyleSheet.create({
     height: 60,
   },
   topBarLabel: {
-    color: "#ffffff", // Warna teks putih (#ffffff)
+    // Warna teks putih (#ffffff)
     fontSize: 20,
     fontWeight: "400",
     textTransform: "capitalize",

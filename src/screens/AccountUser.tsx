@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, Alert, BackHandler } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, CommonActions } from '@react-navigation/native';
 import { Feather } from '@expo/vector-icons';
 
 const AccountUser = () => {
@@ -15,23 +15,23 @@ const AccountUser = () => {
   };
 
   const handleLogoutPress = () => {
-    Alert.alert(
-      'Logout',
-      'Apakah anda ingin Logout dari aplikasi?',
-      [
-        {
-          text: 'Cancel',
-          onPress: () => console.log('Logout cancelled'),
-          style: 'cancel',
-        },
-        {
-          text: 'Yes',
-          onPress: () => BackHandler.exitApp(),
-        },
-      ],
-      { cancelable: false }
-    );
-  };
+      Alert.alert(
+        'Logout',
+        'Apakah anda ingin Logout dari aplikasi?',
+        [
+          {
+            text: 'Cancel',
+            onPress: () => console.log('Logout cancelled'),
+            style: 'cancel',
+          },
+          {
+            text: 'Yes',
+            onPress: () => BackHandler.exitApp(),
+          },
+        ],
+        { cancelable: false }
+      );
+    };
 
   return (
     <View style={styles.container}>
