@@ -72,7 +72,7 @@ We welcome contributions from anyone. If you would like to contribute, please fo
 ## Download Aplication
    Click on the following link to download the app:
    
-   [Download MovieProgate9](https://s.id/MovieProgate9)
+   [Download](https://s.id/MovieProgate9)
 
 ---
 Created with ❤️ by Kelompok 9 Progate
