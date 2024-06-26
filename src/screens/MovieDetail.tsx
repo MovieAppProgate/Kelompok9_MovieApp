@@ -169,21 +169,21 @@ const MovieDetail = ({ route }: any): JSX.Element => {
         <View style={styles.flexrow}>
           <View style={styles.flex}>
             <Text style={styles.detailLabel}>Original Language: </Text>
-            <Text>{movie.original_language}</Text>
+            <Text style={styles.desclabel}>{movie.original_language}</Text>
           </View>
           <View style={styles.flex}>
             <Text style={styles.detailLabel}>Popularity: </Text>
-            <Text>{movie.popularity}</Text>
+            <Text style={styles.desclabel}>{movie.popularity}</Text>
           </View>
         </View>
         <View style={styles.flexrow}>
           <View style={styles.flex}>
             <Text style={styles.detailLabel}>Release date: </Text>
-            <Text>{movie.release_date}</Text>
+            <Text style={styles.desclabel}>{movie.release_date}</Text>
           </View>
           <View style={styles.flex}>
             <Text style={styles.detailLabel}>Vote Count: </Text>
-            <Text>{movie.vote_count}</Text>
+            <Text style={styles.desclabel}>{movie.vote_count}</Text>
           </View>
         </View>
         <View style={styles.header}>
@@ -278,6 +278,9 @@ const styles = StyleSheet.create({
   detailLabel: {
     fontWeight: "bold",
     color: "#ffffff", // Warna teks putih (#ffffff)
+  },
+  desclabel:{
+    color: "#ffee2b",
   },
   recommendationList: {
     paddingLeft: 8,

@@ -55,6 +55,7 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     padding: 16,
     backgroundColor: '#212121', // Warna background hitam (#212121)
+    paddingTop :30,
   },
   container: {
     flex: 1,

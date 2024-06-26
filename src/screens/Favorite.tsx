@@ -91,6 +91,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#212121", // Warna background hitam (#212121)
     paddingHorizontal: 8,
+    paddingTop: 20,
   },
   title: {
     fontSize: 24,
